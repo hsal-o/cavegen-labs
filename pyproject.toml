@@ -7,7 +7,7 @@ name = "cavegen-labs"
 version = "0.1.0"
 description = "A modular desktop laboratory for procedural cave-generation algorithms."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 authors = [
     { name = "Hector Salinas" }
 ]
@@ -28,8 +28,8 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py312"
+target-version = "py314"
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.14"
 strict = true
