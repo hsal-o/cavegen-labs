@@ -20,7 +20,7 @@ class PositionInput(ParameterInput):
         self._default = default
         self._variable = StringVar(value=default.value)
 
-        self._label: ttk.Label | None = None
+        self._label_widget: ttk.Label | None = None
         self._combobox: ttk.Combobox | None = None
 
     def render(
@@ -28,11 +28,11 @@ class PositionInput(ParameterInput):
         parent: Frame,
         row: int,
     ) -> None:
-        self._label = ttk.Label(
+        self._label_widget = ttk.Label(
             parent,
             text=self.label,
         )
-        self._label.grid(
+        self._label_widget.grid(
             row=row,
             column=0,
             sticky="w",

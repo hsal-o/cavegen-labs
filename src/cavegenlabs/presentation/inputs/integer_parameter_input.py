@@ -21,11 +21,9 @@ class IntegerParameterInput(ParameterInput):
         self._minimum = minimum
         self._maximum = maximum
 
-        self._variable: StringVar = StringVar(
-            value=str(default)
-        )
+        self._variable = StringVar(value=str(default))
 
-        self._label: ttk.Label | None = None
+        self._label_widget: ttk.Label | None = None
         self._entry: ttk.Entry | None = None
 
     def render(
@@ -33,7 +31,7 @@ class IntegerParameterInput(ParameterInput):
         parent: Frame,
         row: int,
     ) -> None:
-        self._label = ttk.Label(
+        self._label_widget = ttk.Label(
             parent,
             text=self.label,
         )
@@ -43,7 +41,7 @@ class IntegerParameterInput(ParameterInput):
             textvariable=self._variable,
         )
 
-        self._label.grid(
+        self._label_widget.grid(
             row=row,
             column=0,
             sticky="w",
