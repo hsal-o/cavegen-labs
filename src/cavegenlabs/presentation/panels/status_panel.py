@@ -1,4 +1,4 @@
-from tkinter import ttk
+from tkinter import StringVar, ttk
 
 
 class StatusPanel(ttk.Frame):
@@ -8,13 +8,20 @@ class StatusPanel(ttk.Frame):
     ) -> None:
         super().__init__(parent)
 
+        self._status = StringVar(value="Status: Ready")
+
         self._label = ttk.Label(
             self,
-            text="Status: Ready",
+            textvariable=self._status,
         )
-
         self._label.pack(
             anchor="w",
             padx=5,
             pady=2,
         )
+
+    def set_status(
+        self,
+        message: str,
+    ) -> None:
+        self._status.set(f"Status: {message}")

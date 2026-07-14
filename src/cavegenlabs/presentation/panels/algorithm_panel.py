@@ -11,3 +11,15 @@ class AlgorithmPanel(ttk.LabelFrame):
             text="Algorithms",
             padding=10,
         )
+
+        self.columnconfigure(0, weight=1)
+
+        self._empty_label = ttk.Label(
+            self,
+            text="No algorithms available.",
+        )
+        self._empty_label.grid(
+            row=0,
+            column=0,
+            sticky="nw",
+        )
