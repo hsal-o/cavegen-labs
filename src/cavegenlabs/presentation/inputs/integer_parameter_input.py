@@ -1,7 +1,6 @@
 from tkinter import StringVar, ttk
 from tkinter.ttk import Frame
 
-from cavegenlabs.domain.generation import ParameterDefinition
 from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 
 
