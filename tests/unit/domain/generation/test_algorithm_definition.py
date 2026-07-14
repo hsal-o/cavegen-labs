@@ -5,7 +5,7 @@ from typing import Any
 
 import pytest
 
-from cavegenlabs.domain.generation import AlgorithmDefinition, ParameterDefinition, ParameterType
+from cavegenlabs.domain.generation import AlgorithmDefinition, ParameterDefinition, ParameterValueType
 from cavegenlabs.domain.models import CaveMap, Tile
 
 @dataclass(frozen=True)
@@ -45,13 +45,13 @@ def test_creates_valid_algorithm_definition() -> None:
         ParameterDefinition(
             key="width",
             label="Width",
-            parameter_type=ParameterType.INTEGER,
+            parameter_type=ParameterValueType.INTEGER,
             default=80
         ),
         ParameterDefinition(
             key="height",
             label="Height",
-            parameter_type=ParameterType.INTEGER,
+            parameter_type=ParameterValueType.INTEGER,
             default=60
         ),
     )
@@ -99,13 +99,13 @@ def test_rejects_duplicate_parameter_keys() -> None:
         ParameterDefinition(
             key="width",
             label="Width",
-            parameter_type=ParameterType.INTEGER,
+            parameter_type=ParameterValueType.INTEGER,
             default=80,
         ),
         ParameterDefinition(
             key="width",
             label="Other Width",
-            parameter_type=ParameterType.INTEGER,
+            parameter_type=ParameterValueType.INTEGER,
             default=100,
         ),
     )

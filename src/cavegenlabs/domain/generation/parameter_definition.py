@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any
 
-class ParameterType(Enum):
+class ParameterValueType(Enum):
     INTEGER = "integer"
     DECIMAL = "decimal"
     BOOLEAN = "boolean"
@@ -12,12 +12,13 @@ class ParameterType(Enum):
 class ParameterDefinition:
     key: str
     label: str
-    parameter_type: ParameterType
+    parameter_type: ParameterValueType
     default: Any
     minimum: int | float | None = None
     maximum: int | float | None = None
     choices: tuple[Any, ...] = ()
     description: str | None = None
+    required: bool = True
 
     def __post_init__(self) -> None:
         if not self.key:
@@ -30,5 +31,5 @@ class ParameterDefinition:
             if self.minimum > self.maximum:
                 raise ValueError("Parameter minimum can not be greater than maximum.")
             
-        if self.parameter_type is ParameterType.CHOICE and not self.choices:
+        if self.parameter_type is ParameterValueType.CHOICE and not self.choices:
             raise ValueError("Choice parameters must define at least one choice.")

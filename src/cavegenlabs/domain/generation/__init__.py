@@ -1,5 +1,5 @@
 from cavegenlabs.domain.generation.generator import CaveGenerator
-from cavegenlabs.domain.generation.parameter_definition import ParameterDefinition, ParameterType
+from cavegenlabs.domain.generation.parameter_definition import ParameterDefinition, ParameterValueType
 from cavegenlabs.domain.generation.algorithm_definition import AlgorithmDefinition, ConfigFactory
 
 __all__ = [
@@ -7,5 +7,5 @@ __all__ = [
     "CaveGenerator",
     "ConfigFactory",
     "ParameterDefinition",
-    "ParameterType",
+    "ParameterValueType",
 ]

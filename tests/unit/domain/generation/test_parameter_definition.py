@@ -1,13 +1,13 @@
 import pytest 
 
-from cavegenlabs.domain.generation.parameter_definition import ParameterDefinition, ParameterType
+from cavegenlabs.domain.generation.parameter_definition import ParameterDefinition, ParameterValueType
 
 
 def test_creates_valid_integer_parameter_definition() -> None:
     parameter = ParameterDefinition(
         key="iterations",
         label="Iterations",
-        parameter_type=ParameterType.INTEGER,
+        parameter_type=ParameterValueType.INTEGER,
         default=5,
         minimum=0,
         maximum=100
@@ -21,7 +21,7 @@ def test_rejects_empty_key() -> None:
         ParameterDefinition(
             key="",
             label="Iterations",
-            parameter_type=ParameterType.INTEGER,
+            parameter_type=ParameterValueType.INTEGER,
             default=5,
         )
 
@@ -30,7 +30,7 @@ def test_rejects_empty_label() -> None:
         ParameterDefinition(
             key="iterations",
             label="",
-            parameter_type=ParameterType.INTEGER,
+            parameter_type=ParameterValueType.INTEGER,
             default=5,
         )
 
@@ -39,7 +39,7 @@ def test_rejects_minimum_greater_than_maximum() -> None:
         ParameterDefinition(
             key="iterations",
             label="Iterations",
-            parameter_type=ParameterType.INTEGER,
+            parameter_type=ParameterValueType.INTEGER,
             default=5,
             minimum=10,
             maximum=1,
@@ -50,6 +50,6 @@ def test_rejects_choice_parameter_without_choices() -> None:
         ParameterDefinition(
             key="start_position",
             label="Start Position",
-            parameter_type=ParameterType.CHOICE,
+            parameter_type=ParameterValueType.CHOICE,
             default="center",
         )
