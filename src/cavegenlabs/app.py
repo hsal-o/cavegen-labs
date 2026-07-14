@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from cavegenlabs.algorithms.random_walk.definition import RANDOM_WALK_DEFINITION
 from cavegenlabs.application import (
     AlgorithmRegistry,
     GenerationService,
@@ -13,7 +14,11 @@ from cavegenlabs.presentation.main_window import MainWindow
 def main() -> None:
     root = tk.Tk()
 
-    registry = AlgorithmRegistry(())
+    registry = AlgorithmRegistry(
+        (
+            RANDOM_WALK_DEFINITION,
+        )
+    )
 
     generation_service = GenerationService(
         registry=registry,
