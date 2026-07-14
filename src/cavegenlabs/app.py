@@ -1,6 +1,9 @@
 import tkinter as tk
 
-from cavegenlabs.application import AlgorithmRegistry
+from cavegenlabs.application import (
+    AlgorithmRegistry,
+    GenerationService,
+)
 from cavegenlabs.presentation.generation_view_model import (
     GenerationViewModel,
 )
@@ -12,8 +15,13 @@ def main() -> None:
 
     registry = AlgorithmRegistry(())
 
+    generation_service = GenerationService(
+        registry=registry,
+    )
+
     view_model = GenerationViewModel(
         registry=registry,
+        generation_service=generation_service
     )
 
     MainWindow(

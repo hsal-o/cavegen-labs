@@ -169,6 +169,21 @@ class MainWindow:
         )
 
     def _on_generate_clicked(self) -> None:
+        try:
+            result = self._view_model.generate(
+                base_values=self._parameter_panel.get_base_values(),
+                algorithm_values=(
+                    self._parameter_panel.get_algorithm_values()
+                ),
+            )
+        except (ValueError, TypeError) as error:
+            self._status_panel.set_status(str(error))
+            return
+
+        self._preview_panel.display(result.cave_map)
+
         self._status_panel.set_status(
-            "Generation is not connected yet."
+            f"Generated {result.algorithm_name} "
+            f"with seed {result.seed} "
+            f"in {result.duration_seconds:.4f} seconds."
         )
