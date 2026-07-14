@@ -1,13 +1,8 @@
-from collections.abc import Callable
 from tkinter import ttk
 
 from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
-from cavegenlabs.presentation.panels.algorithm_parameter_panel import (
-    AlgorithmParameterPanel,
-)
-from cavegenlabs.presentation.panels.base_parameter_panel import (
-    BaseParameterPanel,
-)
+from cavegenlabs.presentation.panels.algorithm_parameter_panel import AlgorithmParameterPanel
+from cavegenlabs.presentation.panels.base_parameter_panel import BaseParameterPanel
 
 
 class ParameterPanel(ttk.LabelFrame):
