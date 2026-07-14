@@ -4,11 +4,21 @@ from tkinter.ttk import Frame
 
 
 class ParameterInput(ABC):
+    def __init__(
+        self,
+        key: str,
+        label: str,
+    ) -> None:
+        self._key = key
+        self._label = label
 
     @property
-    @abstractmethod
-    def parameter_key(self) -> str:
-        ...
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def label(self) -> str:
+        return self._label
 
     @abstractmethod
     def render(self, parent: Frame, row: int) -> None:

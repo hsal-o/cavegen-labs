@@ -8,20 +8,26 @@ from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 class IntegerParameterInput(ParameterInput):
     def __init__(
         self,
-        definition: ParameterDefinition,
+        key: str,
+        label: str,
+        default: int,
+        minimum: int | None = None,
+        maximum: int | None = None,
     ) -> None:
-        self._definition = definition
+        super().__init__(
+            key=key,
+            label=label,
+        )
+        self._default = default
+        self._minimum = minimum
+        self._maximum = maximum
 
         self._variable: StringVar = StringVar(
-            value=str(definition.default)
+            value=str(default)
         )
 
         self._label: ttk.Label | None = None
         self._entry: ttk.Entry | None = None
-
-    @property
-    def key(self) -> str:
-        return self._definition.key
 
     def render(
         self,
@@ -30,7 +36,7 @@ class IntegerParameterInput(ParameterInput):
     ) -> None:
         self._label = ttk.Label(
             parent,
-            text=self._definition.label,
+            text=self.label,
         )
 
         self._entry = ttk.Entry(
@@ -64,9 +70,7 @@ class IntegerParameterInput(ParameterInput):
         self._variable.set(str(value))
 
     def reset(self) -> None:
-        self._variable.set(
-            str(self._definition.default)
-        )
+        self._variable.set(str(self._default))
 
     def focus(self) -> None:
         if self._entry is not None:
