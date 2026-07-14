@@ -1,12 +1,17 @@
 from abc import ABC, abstractmethod
 from typing import Any 
+from tkinter.ttk import Frame
 
 
 class ParameterInput(ABC):
 
     @property
     @abstractmethod
-    def key(self) -> str:
+    def parameter_key(self) -> str:
+        ...
+
+    @abstractmethod
+    def render(self, parent: Frame, row: int) -> None:
         ...
 
     @abstractmethod
@@ -18,21 +23,9 @@ class ParameterInput(ABC):
         ...
 
     @abstractmethod
-    def validate(self) -> bool:
-        ...
-
-    @abstractmethod
     def reset(self) -> None:
         ...
 
     @abstractmethod
     def focus(self) -> None:
-        ...
-
-    @abstractmethod
-    def show_error(self, message: str) -> None:
-        ...
-
-    @abstractmethod
-    def clear_error(self) -> None:
         ...
