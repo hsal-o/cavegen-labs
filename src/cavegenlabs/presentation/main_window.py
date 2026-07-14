@@ -1,4 +1,4 @@
-from tkinter import Tk, ttk
+from tkinter import Menu, Tk, ttk
 from cavegenlabs.presentation.panels import AlgorithmPanel, ParameterPanel, PreviewPanel, StatusPanel
 
 
@@ -10,6 +10,7 @@ class MainWindow:
         self._root = root
 
         self._configure_window()
+        self._create_menu()
 
         self._main_frame = ttk.Frame(
             self._root,
@@ -29,6 +30,44 @@ class MainWindow:
         self._root.minsize(
             width=900,
             height=600,
+        )
+
+    def _create_menu(self) -> None:
+        menu_bar = ttk.Frame(self._root)
+
+        file_button = ttk.Menubutton(
+            menu_bar,
+            text="File",
+        )
+        file_menu = Menu(
+            file_button,
+            tearoff=False,
+        )
+        file_menu.add_command(
+            label="Exit",
+            command=self._root.destroy,
+        )
+        file_button.configure(menu=file_menu)
+        file_button.pack(side="left")
+
+        help_button = ttk.Menubutton(
+            menu_bar,
+            text="Help",
+        )
+        help_menu = Menu(
+            help_button,
+            tearoff=False,
+        )
+        help_menu.add_command(
+            label="About CaveGenLabs",
+        )
+        help_button.configure(menu=help_menu)
+        help_button.pack(side="left")
+
+        menu_bar.pack(
+            fill="x",
+            padx=10,
+            pady=(5, 0),
         )
 
     def _configure_layout(self) -> None:
