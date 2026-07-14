@@ -1,13 +1,24 @@
 from tkinter import Menu, Tk, ttk
-from cavegenlabs.presentation.panels import AlgorithmPanel, ParameterPanel, PreviewPanel, StatusPanel
+
+from cavegenlabs.presentation.generation_view_model import (
+    GenerationViewModel,
+)
+from cavegenlabs.presentation.panels import (
+    AlgorithmPanel,
+    ParameterPanel,
+    PreviewPanel,
+    StatusPanel,
+)
 
 
 class MainWindow:
     def __init__(
         self,
         root: Tk,
+        view_model: GenerationViewModel,
     ) -> None:
         self._root = root
+        self._view_model = view_model
 
         self._configure_window()
         self._create_menu()
@@ -23,6 +34,8 @@ class MainWindow:
 
         self._configure_layout()
         self._create_panels()
+        self._bind_events()
+        self._load_algorithms()
 
     def _configure_window(self) -> None:
         self._root.title("CaveGenLabs")
@@ -33,42 +46,34 @@ class MainWindow:
         )
 
     def _create_menu(self) -> None:
-        menu_bar = ttk.Frame(self._root)
+        menu_bar = Menu(self._root)
 
-        file_button = ttk.Menubutton(
-            menu_bar,
-            text="File",
-        )
         file_menu = Menu(
-            file_button,
+            menu_bar,
             tearoff=False,
         )
         file_menu.add_command(
             label="Exit",
             command=self._root.destroy,
         )
-        file_button.configure(menu=file_menu)
-        file_button.pack(side="left")
-
-        help_button = ttk.Menubutton(
-            menu_bar,
-            text="Help",
+        menu_bar.add_cascade(
+            label="File",
+            menu=file_menu,
         )
+
         help_menu = Menu(
-            help_button,
+            menu_bar,
             tearoff=False,
         )
         help_menu.add_command(
             label="About CaveGenLabs",
         )
-        help_button.configure(menu=help_menu)
-        help_button.pack(side="left")
-
-        menu_bar.pack(
-            fill="x",
-            padx=10,
-            pady=(5, 0),
+        menu_bar.add_cascade(
+            label="Help",
+            menu=help_menu,
         )
+
+        self._root.configure(menu=menu_bar)
 
     def _configure_layout(self) -> None:
         self._main_frame.columnconfigure(
@@ -90,10 +95,6 @@ class MainWindow:
         self._main_frame.rowconfigure(
             index=0,
             weight=1,
-        )
-        self._main_frame.rowconfigure(
-            index=1,
-            weight=0,
         )
 
     def _create_panels(self) -> None:
@@ -136,4 +137,38 @@ class MainWindow:
             columnspan=3,
             sticky="ew",
             pady=(10, 0),
+        )
+
+    def _bind_events(self) -> None:
+        self._algorithm_panel.set_selection_callback(
+            self._on_algorithm_selected,
+        )
+
+        self._parameter_panel.set_generate_callback(
+            self._on_generate_clicked,
+        )
+
+    def _load_algorithms(self) -> None:
+        definitions = self._view_model.get_algorithms()
+        self._algorithm_panel.set_algorithms(definitions)
+
+        if not definitions:
+            self._parameter_panel.disable_generate()
+
+    def _on_algorithm_selected(
+        self,
+        algorithm_id: str,
+    ) -> None:
+        inputs = self._view_model.select_algorithm(
+            algorithm_id,
+        )
+
+        self._parameter_panel.set_algorithm_inputs(inputs)
+        self._status_panel.set_status(
+            f"Selected algorithm: {algorithm_id}"
+        )
+
+    def _on_generate_clicked(self) -> None:
+        self._status_panel.set_status(
+            "Generation is not connected yet."
         )
