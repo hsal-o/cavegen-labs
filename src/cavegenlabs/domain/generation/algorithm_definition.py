@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import Any, Generic, TypeVar
 
 from cavegenlabs.domain.generation.generator import CaveGenerator
-from cavegenlabs.domain.generation.parameter_definition import ParameterDefinition
+from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 
 
 ConfigT = TypeVar("ConfigT")
@@ -16,7 +16,7 @@ class AlgorithmDefinition(Generic[ConfigT]):
     algorithm_id: str
     display_name: str
     description: str 
-    parameters: tuple[ParameterDefinition, ...]
+    create_inputs: Callable[[], tuple[ParameterInput, ...]]
     config_factory: ConfigFactory[ConfigT]
     generator: CaveGenerator[ConfigT]
 
