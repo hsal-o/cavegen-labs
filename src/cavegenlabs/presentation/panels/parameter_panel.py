@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from tkinter import ttk
 
 from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
