@@ -34,7 +34,7 @@ def create_inputs() -> tuple[ParameterInput, ...]:
         DecimalParameterInput(
             key="bias",
             label="Bias",
-            default=0.05,
+            default=0.00,
             minimum=0.0,
             maximum=1.0,
         ),
