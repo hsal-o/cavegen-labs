@@ -1,5 +1,6 @@
 
 from cavegenlabs.domain.models.grid_position import GridPosition
+from cavegenlabs.presentation.inputs.integer_pair_parameter_input import IntegerPairParameterInput
 from cavegenlabs.presentation.inputs.integer_parameter_input import IntegerParameterInput
 from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 from cavegenlabs.presentation.inputs.position_input import PositionInput
@@ -32,4 +33,9 @@ def create_input() -> tuple[ParameterInput, ...]:
             label="Thickness",
             default=3
         ),
+        IntegerPairParameterInput(
+            key="thickness_variation",
+            label="ΔThickness (+/-)",
+            default=(0,0)
+        )
     )

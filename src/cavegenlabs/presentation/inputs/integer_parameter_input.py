@@ -1,5 +1,4 @@
 from tkinter import StringVar, ttk
-from tkinter.ttk import Frame
 
 from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 
@@ -28,7 +27,7 @@ class IntegerParameterInput(ParameterInput):
 
     def render(
         self,
-        parent: Frame,
+        parent: ttk.Frame,
         row: int,
     ) -> None:
         self._label_widget = ttk.Label(
