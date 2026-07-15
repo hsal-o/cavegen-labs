@@ -28,7 +28,7 @@ class IntegerPairParameterInput(ParameterInput):
         parent: ttk.Frame,
         row: int
     ) -> None:
-        self._label_widget == ttk.Label(
+        self._label_widget = ttk.Label(
             parent,
             text=self.label
         )
