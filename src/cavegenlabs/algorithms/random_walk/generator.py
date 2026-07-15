@@ -150,10 +150,10 @@ class RandomWalkGenerator:
         x: int,
         y: int,
     ) -> None:
-        top_extent = ceil(thickness / 2)
-        bottom_extent = floor(thickness / 2)
+        negative_extent  = (thickness - 1) // 2
+        positive_extent  = thickness // 2
 
-        for paint_x in range(x - top_extent, x + bottom_extent):
-            for paint_y in range(y - top_extent, y + bottom_extent):
+        for paint_x in range(x - negative_extent , x + positive_extent  + 1):
+            for paint_y in range(y - negative_extent , y + positive_extent  + 1):
                 if 0 <= paint_x < width and 0 <= paint_y < height:
                     grid[paint_y][paint_x] = Tile.AIR
