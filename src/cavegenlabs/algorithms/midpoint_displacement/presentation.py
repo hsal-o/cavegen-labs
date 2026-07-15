@@ -6,7 +6,7 @@ from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 from cavegenlabs.presentation.inputs.position_input import PositionInput
 
 
-def create_input() -> tuple[ParameterInput, ...]:
+def create_inputs() -> tuple[ParameterInput, ...]:
     return (
         PositionInput(
             key="start_position",
