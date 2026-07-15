@@ -1,5 +1,5 @@
 from cavegenlabs.domain.models.grid_position import GridPosition
-from cavegenlabs.algorithms.random_walk.widgets.position_input import (
+from cavegenlabs.presentation.inputs.position_input import (
     PositionInput,
 )
 from cavegenlabs.presentation.inputs.decimal_parameter_input import (
