@@ -41,11 +41,13 @@ class IntegerPairParameterInput(ParameterInput):
         self._left_entry = ttk.Entry(
             container,
             textvariable=self._left_variable,
+            width=10,
         )
 
         self._right_entry = ttk.Entry(
             container,
             textvariable=self._right_variable,
+            width=10,
         )
 
         self._label_widget.grid(
