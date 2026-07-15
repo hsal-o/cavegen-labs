@@ -39,7 +39,7 @@ class MainWindow:
 
     def _configure_window(self) -> None:
         self._root.title("CaveGenLabs")
-        self._root.geometry("1200x800")
+        self._root.geometry("1200x650")
         self._root.minsize(
             width=900,
             height=600,
@@ -88,8 +88,8 @@ class MainWindow:
         )
         self._main_frame.columnconfigure(
             index=2,
-            weight=3,
-            minsize=400,
+            weight=1,
+            minsize=250,
         )
 
         self._main_frame.rowconfigure(
