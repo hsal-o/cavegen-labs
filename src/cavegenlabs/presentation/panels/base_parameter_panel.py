@@ -14,8 +14,8 @@ class BaseParameterPanel(ttk.LabelFrame):
 
         self.columnconfigure(1, weight=1)
 
-        self._width = StringVar(value="80")
-        self._height = StringVar(value="60")
+        self._width = StringVar(value="64")
+        self._height = StringVar(value="64")
         self._seed = StringVar(value="")
 
         ttk.Label(
