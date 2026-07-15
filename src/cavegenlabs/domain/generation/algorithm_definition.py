@@ -23,7 +23,7 @@ class AlgorithmDefinition(Generic[ConfigT]):
 
     def __post_init__(self) -> None:
         if not self.algorithm_id:
-            raise ValueError("Algorithm ID cannot be empty.")
+            raise ValueError("Algorithm ID can not be empty.")
 
         if not self.display_name:
-            raise ValueError("Algorithm display name cannot be empty.")
+            raise ValueError("Algorithm display name can not be empty.")

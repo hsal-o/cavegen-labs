@@ -1,7 +1,7 @@
 from tkinter import StringVar, ttk
 from tkinter.ttk import Frame
 
-from cavegenlabs.algorithms.random_walk.grid_position import GridPosition
+from cavegenlabs.domain.models.grid_position import GridPosition
 from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from cavegenlabs.algorithms.random_walk.grid_position import GridPosition
+from cavegenlabs.domain.models.grid_position import GridPosition
 
 
 @dataclass(frozen=True)

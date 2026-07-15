@@ -3,7 +3,7 @@ from typing import Any
 
 from cavegenlabs.algorithms.random_walk.config import RandomWalkConfig
 from cavegenlabs.algorithms.random_walk.generator import RandomWalkGenerator
-from cavegenlabs.algorithms.random_walk.grid_position import GridPosition
+from cavegenlabs.domain.models.grid_position import GridPosition
 from cavegenlabs.algorithms.random_walk.presentation import create_inputs
 from cavegenlabs.domain.generation import AlgorithmDefinition
 
