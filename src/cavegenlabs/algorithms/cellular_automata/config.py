@@ -7,8 +7,8 @@ class CellularAutomataConfig:
     height: int 
     iteration_count: int
     nonsolid_odds: float
-    solidify_threshold: int
-    nonsolidify_threshold : int
+    solidify_threshold: int #The minimum threshold number of solid neighbors needed for a cell to convert to solid
+    nonsolidify_threshold : int #The maximum threshold number of solid neighbors needed for a cell to convert to nonsolid
 
     def __post_init__(self) -> None:
         if self.width <= 0:
