@@ -11,12 +11,12 @@ def create_inputs() -> tuple[ParameterInput, ...]:
         PositionInput(
             key="start_position",
             label="Start Position",
-            default=GridPosition.CENTER,
+            default=GridPosition.TOP_LEFT,
         ),
         PositionInput(
             key="end_position",
             label="End Position",
-            default=GridPosition.CENTER,
+            default=GridPosition.BOTTOM_RIGHT,
         ),
         IntegerParameterInput(
             key="iteration_count",
