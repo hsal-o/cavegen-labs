@@ -22,7 +22,7 @@ def create_inputs() -> tuple[ParameterInput, ...]:
         IntegerParameterInput(
             key="step_count",
             label="Step Count",
-            default=100,
+            default=1000,
             minimum=1,
         ),
         IntegerParameterInput(
