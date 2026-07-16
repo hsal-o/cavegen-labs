@@ -2,6 +2,7 @@ import tkinter as tk
 
 from cavegenlabs.algorithms.cellular_automata.definition import CELLULAR_AUTOMATA_DEFINITION
 from cavegenlabs.algorithms.midpoint_displacement.definition import MIDPOINT_DISPLACEMENT_DEFINITION
+from cavegenlabs.algorithms.perlin_worms.definition import PERLIN_WORMS_DEFINITION
 from cavegenlabs.algorithms.random_walk.definition import RANDOM_WALK_DEFINITION
 from cavegenlabs.application import (
     AlgorithmRegistry,
@@ -20,7 +21,8 @@ def main() -> None:
         (
             RANDOM_WALK_DEFINITION,
             MIDPOINT_DISPLACEMENT_DEFINITION,
-            CELLULAR_AUTOMATA_DEFINITION
+            CELLULAR_AUTOMATA_DEFINITION,
+            PERLIN_WORMS_DEFINITION
         )
     )
 
