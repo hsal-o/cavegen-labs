@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from cavegenlabs.algorithms.midpoint_displacement.definition import MIDPOINT_DISPLACEMENT_DEFINITION
 from cavegenlabs.algorithms.random_walk.definition import RANDOM_WALK_DEFINITION
 from cavegenlabs.application import (
     AlgorithmRegistry,
@@ -17,6 +18,7 @@ def main() -> None:
     registry = AlgorithmRegistry(
         (
             RANDOM_WALK_DEFINITION,
+            MIDPOINT_DISPLACEMENT_DEFINITION
         )
     )
 

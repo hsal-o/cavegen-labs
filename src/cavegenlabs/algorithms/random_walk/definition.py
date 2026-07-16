@@ -27,8 +27,7 @@ RANDOM_WALK_DEFINITION = AlgorithmDefinition(
     algorithm_id="random_walk",
     display_name="Random Walk",
     description=(
-        "Carves paths through a solid grid using one or more "
-        "randomly moving walkers."
+        "Carves paths through a solid grid using one or more randomly moving walkers."
     ),
     create_inputs=create_inputs,
     config_factory=create_config,
