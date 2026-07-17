@@ -48,14 +48,16 @@ class MetaballsGenerator:
         metaballs: list[Metaball] = []
 
         for _ in range(config.metaball_count):
+            radius = rng.randint(
+                config.min_radius,
+                config.max_radius,
+            )
+            
             metaballs.append(
                 Metaball(
-                    center_x=rng.randrange(config.width),
-                    center_y=rng.randrange(config.height),
-                    radius=rng.randint(
-                        config.min_radius,
-                        config.max_radius,
-                    )
+                    center_x=rng.randrange(radius, config.width - radius),
+                    center_y=rng.randrange(radius, config.height - radius),
+                    radius=radius
                 )
             )
 
