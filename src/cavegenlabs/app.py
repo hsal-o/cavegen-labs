@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from cavegenlabs.algorithms.binary_space_partition.definition import BINARY_SPACE_PARTITION_DEFINITION
 from cavegenlabs.algorithms.cellular_automata.definition import CELLULAR_AUTOMATA_DEFINITION
 from cavegenlabs.algorithms.midpoint_displacement.definition import MIDPOINT_DISPLACEMENT_DEFINITION
 from cavegenlabs.algorithms.perlin_worms.definition import PERLIN_WORMS_DEFINITION
@@ -22,7 +23,8 @@ def main() -> None:
             RANDOM_WALK_DEFINITION,
             MIDPOINT_DISPLACEMENT_DEFINITION,
             CELLULAR_AUTOMATA_DEFINITION,
-            PERLIN_WORMS_DEFINITION
+            PERLIN_WORMS_DEFINITION,
+            BINARY_SPACE_PARTITION_DEFINITION
         )
     )
 
