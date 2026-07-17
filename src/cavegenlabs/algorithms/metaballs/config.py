@@ -5,9 +5,13 @@ from dataclasses import dataclass
 class MetaballsConfig:
     width: int
     height: int
+
     metaball_count: int
+    negative_metaball_count: int
+
     min_radius: int
     max_radius: int
+
     threshold: float
 
     def __post_init__(self) -> None:
@@ -19,6 +23,9 @@ class MetaballsConfig:
         
         if self.metaball_count <= 0:
             raise ValueError("Metaball count must be greater than zero.")
+        
+        if self.negative_metaball_count < 0:
+            raise ValueError("Negative metaball count can not be less than.")
 
         if self.min_radius <= 0:
             raise ValueError("Minimum radius must be greater than zero.")

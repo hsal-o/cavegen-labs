@@ -11,6 +11,7 @@ class Metaball:
     center_x: int
     center_y: int
     radius: int
+    is_negative: bool
     
 class MetaballsGenerator:
     def generate(
@@ -48,20 +49,48 @@ class MetaballsGenerator:
         metaballs: list[Metaball] = []
 
         for _ in range(config.metaball_count):
-            radius = rng.randint(
-                config.min_radius,
-                config.max_radius,
-            )
-            
             metaballs.append(
-                Metaball(
-                    center_x=rng.randrange(radius, config.width - radius),
-                    center_y=rng.randrange(radius, config.height - radius),
-                    radius=radius
+                self._generate_metaball(
+                    config=config,
+                    rng=rng,
+                    is_negative=False
                 )
             )
 
+        for _ in range(config.negative_metaball_count):
+            metaballs.append(
+                self._generate_metaball(
+                    config=config,
+                    rng=rng,
+                    is_negative=True
+                )
+            )
+        
         return metaballs
+    
+    def _generate_metaball(
+    self,
+    config: MetaballsConfig,
+    rng: Random,
+    is_negative: bool,
+    ) -> Metaball:
+        radius = rng.randint(
+            config.min_radius,
+            config.max_radius
+        )
+
+        return Metaball(
+            center_x=rng.randrange(
+                radius,
+                config.width - radius
+            ),
+            center_y=rng.randrange(
+                radius,
+                config.height - radius
+            ),
+            radius=radius,
+            is_negative=is_negative,
+        )
 
     def _carve_metaballs(
         self,
@@ -96,4 +125,8 @@ class MetaballsGenerator:
         if distance == 0:
             return float("inf")
         
-        return (metaball.radius ** 2) / (distance ** 2)
+        influence = (metaball.radius ** 2) / (distance ** 2)
+        if metaball.is_negative:
+            return -influence
+
+        return influence

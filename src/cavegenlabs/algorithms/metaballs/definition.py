@@ -14,6 +14,7 @@ def create_config(
         width=int(values["width"]),
         height=int(values["height"]),
         metaball_count=int(values["metaball_count"]),
+        negative_metaball_count=int(values["negative_metaball_count"]),
         min_radius=int(values["min_radius"]),
         max_radius=int(values["max_radius"]),
         threshold=float(values["threshold"])
