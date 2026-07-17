@@ -6,6 +6,9 @@ class MetaballsConfig:
     width: int
     height: int
 
+    cluster_count: int
+    cluster_spread: int
+
     metaball_count: int
     negative_metaball_count: int
 
@@ -21,6 +24,28 @@ class MetaballsConfig:
         if self.height <= 0:
             raise ValueError("Height must be greater than zero.")
         
+        if self.cluster_count < 0:
+            raise ValueError("Cluster count can not be less than zero.")
+        
+        if self.cluster_count > 0:
+            if self.cluster_spread < 0:
+                raise ValueError(
+                    "Cluster spread cannot be less than zero."
+                )
+
+            if self.cluster_spread * 2 >= self.width:
+                raise ValueError(
+                    "Cluster spread must be less than half the width."
+                )
+
+            if self.cluster_spread * 2 >= self.height:
+                raise ValueError(
+                    "Cluster spread must be less than half the height."
+                )
+        
+        if self.cluster_spread < 0:
+            raise ValueError("Cluster spread can not be less than zero.")
+
         if self.metaball_count <= 0:
             raise ValueError("Metaball count must be greater than zero.")
         

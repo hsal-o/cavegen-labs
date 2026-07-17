@@ -6,6 +6,18 @@ from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
 def create_inputs() -> tuple[ParameterInput, ...]:
     return (
         IntegerParameterInput(
+            key="cluster_count",
+            label="Cluster Count",
+            default=0,
+            minimum=0
+        ),
+        IntegerParameterInput(
+            key="cluster_spread",
+            label="Cluster Spread",
+            default=0,
+            minimum=0
+        ),
+        IntegerParameterInput(
             key="metaball_count",
             label="(+) Metaball Count",
             default=6,

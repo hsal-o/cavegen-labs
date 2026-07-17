@@ -13,6 +13,8 @@ def create_config(
     return MetaballsConfig(
         width=int(values["width"]),
         height=int(values["height"]),
+        cluster_count=int(values["cluster_count"]),
+        cluster_spread=int(values["cluster_spread"]),
         metaball_count=int(values["metaball_count"]),
         negative_metaball_count=int(values["negative_metaball_count"]),
         min_radius=int(values["min_radius"]),
