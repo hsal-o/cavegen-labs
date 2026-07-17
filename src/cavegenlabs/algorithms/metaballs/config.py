@@ -31,5 +31,15 @@ class MetaballsConfig:
                 "Minimum radius cannot be greater than maximum radius."
             )
         
+        if self.width <= self.max_radius * 2:
+            raise ValueError(
+                "Width must be greater than twice the maximum radius."
+            )
+
+        if self.height <= self.max_radius * 2:
+            raise ValueError(
+                "Height must be greater than twice the maximum radius."
+            )
+        
         if self.threshold <= 0:
             raise ValueError("Threshold must be greater than zero.")
