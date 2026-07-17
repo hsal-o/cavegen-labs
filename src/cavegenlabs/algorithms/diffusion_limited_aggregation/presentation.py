@@ -9,5 +9,5 @@ def create_inputs() -> tuple[ParameterInput, ...]:
             label="Particle Count",
             default=10,
             minimum=1,
-        )
+        ),
     )
