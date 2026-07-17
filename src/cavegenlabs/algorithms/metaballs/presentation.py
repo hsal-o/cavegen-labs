@@ -1,0 +1,32 @@
+from cavegenlabs.presentation.inputs.decimal_parameter_input import DecimalParameterInput
+from cavegenlabs.presentation.inputs.integer_parameter_input import IntegerParameterInput
+from cavegenlabs.presentation.inputs.parameter_input import ParameterInput
+
+
+def create_inputs() -> tuple[ParameterInput, ...]:
+    return (
+        IntegerParameterInput(
+            key="metaball_count",
+            label="Metaball Count",
+            default=2,
+            minimum=1
+        ),
+        IntegerParameterInput(
+            key="min_radius",
+            label="Min Radius",
+            default=10,
+            minimum=1
+        ),
+        IntegerParameterInput(
+            key="max_radius",
+            label="Max Radius",
+            default=20,
+            minimum=1
+        ),
+        DecimalParameterInput(
+            key="threshold",
+            label="Threshold",
+            default=1.0,
+            minimum=0.01
+        ),
+    )
