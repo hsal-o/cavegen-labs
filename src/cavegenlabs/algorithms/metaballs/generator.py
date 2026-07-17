@@ -123,10 +123,11 @@ class MetaballsGenerator:
         )
 
         if distance == 0:
-            return float("inf")
+            if metaball.is_negative:
+                return float("-inf")
+            else:
+                return float("inf")
         
         influence = (metaball.radius ** 2) / (distance ** 2)
-        if metaball.is_negative:
-            return -influence
-
-        return influence
+        
+        return -influence if metaball.is_negative else influence
