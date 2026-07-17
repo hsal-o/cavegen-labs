@@ -6,6 +6,7 @@ class DiffusionLimitedAggregationConfig:
     width: int
     height: int
     particle_count: int
+    stroke_thickness: int
 
     def __post_init__(self) -> None:
         if self.width <= 0:
@@ -16,4 +17,7 @@ class DiffusionLimitedAggregationConfig:
         
         if self.particle_count <= 0:
             raise ValueError("Particle count must be greater than zero.")
+        
+        if self.stroke_thickness <= 0:
+            raise ValueError("Stroke thickness must be greater than zero.")
         

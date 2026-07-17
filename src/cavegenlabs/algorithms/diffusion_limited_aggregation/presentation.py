@@ -7,7 +7,13 @@ def create_inputs() -> tuple[ParameterInput, ...]:
         IntegerParameterInput(
             key="particle_count",
             label="Particle Count",
-            default=10,
+            default=150,
             minimum=1,
         ),
+        IntegerParameterInput(
+            key="stroke_thickness",
+            label="Stroke Thickness",
+            default=3,
+            minimum=1
+        )
     )

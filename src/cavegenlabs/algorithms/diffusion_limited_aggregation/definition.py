@@ -13,7 +13,8 @@ def create_config(
     return DiffusionLimitedAggregationConfig(
         width=int(values["width"]),
         height=int(values["height"]),
-        particle_count=int(values["particle_count"])
+        particle_count=int(values["particle_count"]),
+        stroke_thickness=int(values["stroke_thickness"])
     )
 
 DIFFUSION_LIMITED_AGGREGATION_DEFINITION = AlgorithmDefinition(

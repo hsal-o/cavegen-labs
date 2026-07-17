@@ -43,7 +43,16 @@ class DiffusionLimitedAggregationGenerator:
         grid: list[list[Tile]],
         config: DiffusionLimitedAggregationConfig
     ) -> None:
-        grid[config.height // 2][config.width // 2] = Tile.AIR
+        seed = Particle(
+            x=config.width // 2,
+            y=config.height // 2,
+        )
+
+        self._carve_particle(
+            grid=grid,
+            config=config,
+            particle=seed,
+        )
 
     def _grow_cave(
         self,
@@ -118,7 +127,11 @@ class DiffusionLimitedAggregationGenerator:
                 grid=grid,
                 particle=particle
             ):
-                grid[particle.y][particle.x] = Tile.AIR
+                self._carve_particle(
+                    grid=grid,
+                    config=config,
+                    particle=particle,
+                )
                 return
             
     def _move_particle(
@@ -149,6 +162,25 @@ class DiffusionLimitedAggregationGenerator:
             case 3: 
                 if particle.y < config.height - 1:
                     particle.y += 1
+
+    def _carve_particle(
+        self,
+        grid: list[list[Tile]],
+        config: DiffusionLimitedAggregationConfig,
+        particle: Particle
+    ) -> None:
+        radius = config.stroke_thickness // 2
+
+        for offset_y in range(-radius, radius + 1):
+            for offset_x in range(-radius, radius + 1):
+                x = particle.x + offset_x
+                y = particle.y + offset_y
+
+                if (
+                    0 <= x < config.width
+                    and 0 <= y < config.height
+                ):
+                    grid[y][x] = Tile.AIR
 
     def _is_touching_cave(
         self,
