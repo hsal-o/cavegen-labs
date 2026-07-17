@@ -9,7 +9,7 @@ from cavegenlabs.domain.generation import AlgorithmDefinition
 
 
 def create_config(
-    values: Mapping[str, Any],
+    values: Mapping[str, Any]
 ) -> RandomWalkConfig:
     return RandomWalkConfig(
         width=int(values["width"]),
@@ -31,5 +31,5 @@ RANDOM_WALK_DEFINITION = AlgorithmDefinition(
     ),
     create_inputs=create_inputs,
     config_factory=create_config,
-    generator=RandomWalkGenerator(),
+    generator=RandomWalkGenerator()
 )

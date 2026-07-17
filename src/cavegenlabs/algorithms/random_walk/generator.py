@@ -9,7 +9,7 @@ class RandomWalkGenerator:
     def generate(
         self,
         config: RandomWalkConfig,
-        rng: Random,
+        rng: Random
     ) -> CaveMap:
         grid = [
             [Tile.SOLID for _ in range(config.width)]
