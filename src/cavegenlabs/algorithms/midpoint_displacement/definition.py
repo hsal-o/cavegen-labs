@@ -26,7 +26,7 @@ def create_config(
 MIDPOINT_DISPLACEMENT_DEFINITION = AlgorithmDefinition(
     algorithm_id="midpoint_displacement",
     display_name="Midpoint Displacement",
-    description="Generates cave passages using recursive midpoint displacement.",
+    description="Generates cave passages using recursive subdivision.",
     create_inputs=create_inputs,
     config_factory=create_config,
     generator=MidpointDisplacementGenerator()

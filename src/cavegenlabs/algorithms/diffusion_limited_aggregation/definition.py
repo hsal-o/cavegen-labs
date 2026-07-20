@@ -20,7 +20,7 @@ def create_config(
 DIFFUSION_LIMITED_AGGREGATION_DEFINITION = AlgorithmDefinition(
     algorithm_id="diffusion_limited_aggregation",
     display_name="Diffusion-Limited Aggregation (DLA)",
-    description="Creates branching caves my simulating randomly moving particles that attach to a structure.",
+    description="Creates branching caves by simulating randomly moving particles that attach to a structure.",
     create_inputs=create_inputs,
     config_factory=create_config,
     generator=DiffusionLimitedAggregationGenerator()
