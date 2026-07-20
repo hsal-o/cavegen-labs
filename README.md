@@ -76,6 +76,7 @@ python -m cavegenlabs
 - [x] Create a common configuration and parameter system
 - [x] Implement visualization for generated caves
 - [x] Implement multiple procedural cave generation algorithms
+- [ ] Automatically discover and register new algorithm definitions in AlgorithmRegistry
 - [ ] Implement a menu bar and application shortcuts
 - [ ] Add screenshot export functionality
 - [ ] Support saving and loading generated caves
