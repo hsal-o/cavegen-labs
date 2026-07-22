@@ -1,0 +1,20 @@
+.md-button + .md-button {
+    margin-left: 0.75rem;
+}
+
+.md-typeset h1 {
+    font-size: 2.255rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+.md-typeset h1 + p {
+    margin-top: 0;
+    margin-bottom: 1.75rem;
+    font-size: 1rem;
+}
+
+.md-content__inner {
+    margin-top: 1rem;
+}

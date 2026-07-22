@@ -1,0 +1,31 @@
+site_name: CaveGenLabs
+site_description: A Python-based testbed for experimenting with procedural cave generation algorithms
+site_url: https://hsal-o.github.io/cavegen-labs/
+
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: black
+    accent: black
+  features:
+    - navigation.instant
+    - navigation.sections
+    - content.code.copy
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Documentation: documentation.md
+  - Quickstart: quickstart.md
+  - Algorithms: algorithms.md
+  - Contributions: contributions.md
+  - License: license.md
