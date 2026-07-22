@@ -30,17 +30,16 @@ Key features include:
 
 ## Included Algorithms
 
-CGL currently includes the following procedural cave generation algorithms:
+CGL currently includes implementations of several procedural cave generation algorithms, including:
 
 - *Random Walk*
 - *Midpoint Displacement*
 - *Cellular Automata*
 - *Perlin Worms*
 - *Binary Space Partitioning*
-- *Metaballs*
-- *Diffusion Limited Aggregation*
+- *And more...*
 
-See the [Algorithms](algorithms.md) section for a detailed overview of each implementation.
+See the [Algorithms](algorithms.md) section for a complete overview of all implemented algorithms.
 
 --- 
 
