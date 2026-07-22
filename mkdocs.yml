@@ -24,8 +24,8 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Documentation: documentation.md
   - Quickstart: quickstart.md
+  - Documentation: documentation.md
   - Algorithms: algorithms.md
   - Contributions: contributions.md
   - License: license.md
