@@ -1,0 +1,37 @@
+.md-button + .md-button {
+    margin-left: 0.75rem;
+}
+
+.md-typeset h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+.md-typeset h1 + p {
+    margin-top: 0;
+    margin-bottom: 1.75rem;
+    font-size: 1rem;
+}
+
+.md-content__inner {
+    margin-top: 1.5rem;
+}
+
+.md-typeset h2 {
+    position: relative;
+}
+
+.algorithm-difficulty {
+    position: absolute;
+    right: 0;
+    bottom: 0.15em;
+    font-size: 0.65em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.algorithm-difficulty::before {
+    content: attr(data-difficulty);
+}

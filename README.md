@@ -12,7 +12,7 @@ CGL currently includes the following procedural cave generation algorithms:
 |-----------|-------------|
 | Random Walk | Carves paths through a solid grid using one or more randomly moving walkers.
 | Midpoint Displacement | Generates cave passages using recursive subdivision.
-| Cellular Automata | Generate organic cave layouts by repeatdely updating cells based on their neighbors.
+| Cellular Automata | Generates organic cave layouts by repeatdely updating cells based on their neighbors.
 | Perlin Worms | Generates cave systems using Perlin noise.
 | Binary Space Partitioning | Generates cave rooms by recursively dividing the given area into sections.
 | Metaballs | Carves organic, blobby caves by summing the influence of randomly placed metaballs.
